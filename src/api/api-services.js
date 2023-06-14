@@ -12,10 +12,10 @@ export default class NewsApiService {
       `${BASE_URL}?q=${this.searchQuery}&pageSize=5&page=${this.page}&apiKey=${KEY}`
     )
       .then(response => response.json())
-      .then(data => {
+      .then(({ articles }) => {
         this.page += 1;
 
-        return data.articles;
+        return articles;
       });
   }
 
